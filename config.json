@@ -1,0 +1,13 @@
+{
+  "service" : "streaming",
+  "method" : "stream_tweets",
+  "log_path": "",
+  "escape": "",
+  "parameters" : {
+    "api_token": "",
+    "api_secret": "",
+    "access_token" : "",
+    "access_secret" : "",
+    "keywords": [""]
+  }
+}
