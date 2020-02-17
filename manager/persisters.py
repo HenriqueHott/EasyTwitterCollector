@@ -1,7 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from util import util
 import json
-from time import time
 from glob import glob
 from os import path
 from os import mkdir
@@ -16,6 +15,8 @@ class DataSaver(metaclass=ABCMeta):
 
 
 class RawTweetSaver(DataSaver):
+
+    """ Informacoes sobre a classe disponiveis no arquivo RawTwitterSaver.md """
 
     def __init__(self):
         with open('manager\\environment.json') as f:
@@ -34,6 +35,13 @@ class RawTweetSaver(DataSaver):
             self.__out_path = base_path + escape + prefix + escape
 
     def persist(self, data, **kwargs):
+
+        """
+            Persiste os dados de um tweet ou de uma menssagem para o arquivo mais atutal
+            :param data - Dicionario
+            :param data_type - apiMessage ou statuses indentificando  o que se trata menssagem
+        """
+
         suffix = kwargs['suffix'] if 'suffix' in kwargs.keys() else datetime.today().strftime('%H%M%S')
         data_type = kwargs['data_type']
         if data_type != 'statuses' and data_type != 'apiMessages':
@@ -45,6 +53,7 @@ class RawTweetSaver(DataSaver):
             self.__save_message(data, suffix)
 
     def __save_tweet(self, data, suffix):
+
         # start_time = time()
         prefix = self.__environment['prefix']
         escape = self.__environment['escape']
@@ -73,7 +82,7 @@ class RawTweetSaver(DataSaver):
             if util.count_file_lines(lastest_file) >= max_lines:
                 lastest_file = out_path + escape + prefix + '_' + suffix
 
-        to_save = data if fields == 'all' else {field: data[field] for field in fields}
+        to_save = data if fields is not None else {field: data[field] for field in fields}
         with open(lastest_file, 'a+', encoding=unicode) as f:
             f.write(json.dumps(to_save) + '\n')
 

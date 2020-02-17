@@ -3,7 +3,7 @@ Easy Twitter Collector
 
 Aplicação criada utilizando a biblioteca open-source [Tweepy](https://www.tweepy.org/ "tweepy website") que fornece um wrapper para facilitar o acesso para Twitter API. A proposta de uso é de fornecer ao desenvolvedor um método fácil para realizar coletas de tweets em streaming (e outros métodos em futuras implementações). É disponibilizado  uma interface da qual é possível alterar a forma de como os dados são recebidos conforme a necessidade do usuário e também um módulo para a realização da escrita do logs de execução, erros e exceções.
  
-Requrimentos
+Requerimentos
 ------------
 Python 3.x.x e a biblioteca tweepy que pode ser baixada através do instalador de pacotes python [PIP](https://pypi.org/project/pip/) com o comando:  
 
@@ -19,15 +19,18 @@ Altere o arquivo config.json com o serviço que será usado, o método de coleta
   "service" : "streaming",
   "method" : "stream_tweets",
   "log_path": "\\path\\to\\logs",
-  "escape": "\\",   ou / em caso de sistemas operacionais Unix
+  "escape": "\\ ( ou / em caso de sistemas operacionais Unix)",  
   "parameters" : {
-    "param1": valor1,
-    "param2": valor2,
-    "param3": valor3
+    "param1": "valor1",
+    "param2": "valor2",
+    "param3": "valor3"
   }
 }
 ```
+
 Com as configurações corretamente feitas execute o arquivo main.py na pasta raiz da aplicação.
+
+- **Consultar descrições dos métodos no arquivo servicesDetails.md**
 
 Alterando o módulo para persistência dos dados
 ------------

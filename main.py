@@ -7,13 +7,12 @@ from tweepy import TweepError
 
 """ Modulo principal que inicia a aplicacao"""
 
-
 def main():
 
     config = util.get_configs()
 
     saver = persisters.RawTweetSaver()
-    # config['parameters']['saver'] = saver
+
     try:
         if config['service'] == 'streaming':
             method = getattr(streaming, config['method'])

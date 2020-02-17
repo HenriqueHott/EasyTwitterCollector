@@ -12,9 +12,7 @@ def stream_tweets(api_token: str, api_secret: str, access_token: str, access_sec
 
     """
         Metodo para executar a coleta em tempo real de tweets filtrando a coleta conforme
-        os parametros enviados pelo ususario caso queira mudar a forma como os dados coletados
-        sao tratados e necessario alterar a variavel manager para aquela que contem a instacia
-        da classe respectiva que fara a tratativa dos dados recebidos.
+        os parametros enviados pelo usuario.
 
     """
 
